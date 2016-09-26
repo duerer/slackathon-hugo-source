@@ -1,0 +1,7 @@
+weight: 3
+title: "Link to Zapier"
+description: >
+  <ul class="list-style-none">
+    <li><a href="https://zapier.com">Zapier</a> allows you to connect applications with a few clicks</li>
+  </ul>
+image: "img/carousel/zaps.png"

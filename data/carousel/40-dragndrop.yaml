@@ -1,0 +1,9 @@
+weight: 3
+title: "Custom workflows"
+description: >
+  <ul class="list-style-none">
+    <li>Design custom integrations using a simple UI</li>
+    <li>&nbsp;</li>
+    <li>Get our <a href="https://github.com/mlopezr/node-red-contrib-matrixbot">nodes</a> for <a href="http://nodered.org">Node-RED</a></li>
+  </ul>
+image: "img/carousel/nodered-twitter.png"

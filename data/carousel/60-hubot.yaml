@@ -1,0 +1,8 @@
+weight: 2
+title: "node.js SDK"
+description: >
+  <ul class="list-style-none">
+    <li>Leverage the well-known Hubot SDK</li>
+    <li>Lots of existing bot examples!</li>
+  </ul>
+image: "img/carousel/hubot.png"
