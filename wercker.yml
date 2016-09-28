@@ -1,4 +1,4 @@
-box: wercker/default
+box: pallet/git-client
 build:
   steps:
     - arjen/hugo-build:
