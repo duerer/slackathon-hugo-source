@@ -1,4 +1,4 @@
-baseurl = "http://team.teopadcloud.com"
+baseurl = "http://dev.teopadcloud.com/"
 title = "Slackathon"
 theme = "hugo-universal-theme"
 languageCode = "en-us"
