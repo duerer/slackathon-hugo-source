@@ -9,6 +9,7 @@ banner = "img/carousel/neb.png"
 
 This document describes the setup of a Matrix bot based on NEB and running as a Docker container. NEB is an open source project to create a generic bot extendable through plugins. It is developed in Python and comes with some sample plugins. More documentation on NEB is available on [https://github.com/matrix-org/Matrix-NEB].
 
+<!--more-->
 
 ## Prerequisites
 

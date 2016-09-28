@@ -5,7 +5,7 @@ languageCode = "en-us"
 # Enable comments by entering your Disqus shortname
 #disqusShortname = "devcows"
 # Enable Google Analytics by entering your tracking code
-googleAnalytics = ""
+googleAnalytics = "UA-63227151-8"
 
 # Define the number of posts per page
 paginate = 10
@@ -27,7 +27,7 @@ paginate = 10
     # - you're done. Happy mailing!
     #
     # Enable the contact form by entering your Formspree.io email
-    email = "your@email.com"
+    email = "slackathon.team@gmail.com"
 
     about_us = "<p>Slackathon team</p>"
     copyright = "Copyright (c) 2016, all rights reserved."
@@ -76,19 +76,27 @@ paginate = 10
     # at 'exampleSite/data/features'.
     # For more informtion take a look at the README.
 
+[params.sign_up]
+    enable = true
+    icon = "fa fa-info-circle"
+    title = "Do you want to know more?"
+    subtitle = "Sign up to stay updated."
+    mailchimp_url = "//teopadcloud.us14.list-manage.com/subscribe/post?u=5986c82c7422e9e39350af1ad&amp;id=42e559e128"
+    mailchimp_name = "b_5986c82c7422e9e39350af1ad_42e559e128"
+
 [params.testimonials]
     enable = false
     # All testimonials are defined in their own files. You can find example items
     # at 'exampleSite/data/testimonials'.
     # For more informtion take a look at the README.
     title = "Testimonials"
-    subtitle = "We have worked with many clients and we always like to hear they come out from the cooperation happy and satisfied. Have a look what our clients said about us."
+    subtitle = ""
 
 [params.see_more]
     enable = false
     icon = "fa fa-file-code-o"
     title = "Do you want to see more?"
-    subtitle = "We have prepared for you more than 40 different HTML pages, including 5 variations of homepage."
+    subtitle = ""
     link_url = "#"
     link_text = "Check other homepages"
 
@@ -103,4 +111,4 @@ paginate = 10
 [params.recent_posts]
     enable = true
     title = "From our blog"
-    subtitle = "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo."
+    subtitle = "Read our recent posts to learn more."
