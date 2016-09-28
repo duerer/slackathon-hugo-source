@@ -1,4 +1,4 @@
-box: pallet/git-client
+box: python
 build:
   steps:
     - arjen/hugo-build:
