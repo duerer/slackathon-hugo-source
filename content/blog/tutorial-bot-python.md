@@ -7,13 +7,9 @@ banner = "img/carousel/neb.png"
 
 +++
 
-This document describes the setup of a Matrix bot based on NEB and running as a Docker container. NEB is an open source project to create a generic bot extendable through plugins. It is developed in Python and comes with some sample plugins. More documentation on NEB is available on [https://github.com/matrix-org/Matrix-NEB].
+This tutorial describes how to create a simple bot that can listen and talk on [Matrix](https://matrix.org) chatrooms using Python and the [NEB framework](https://github.com/matrix-org/Matrix-NEB).
 
 <!--more-->
-
-# Develop Matrix bots using NEB
-
-This document describes the setup of a Matrix bot based on NEB and running as a Docker container. NEB is an open source project to create a generic bot extendable through plugins. It is developed in Python and comes with some sample plugins. More documentation on NEB is available on [https://github.com/matrix-org/Matrix-NEB].
 
 ## Prerequisites
 
@@ -23,13 +19,14 @@ This document describes the setup of a Matrix bot based on NEB and running as a 
 
 ## Setup & Docker image creation
 
-* Get the project code
+First, get the project code:
 
 ```
 git clone https://github.com/nic0d/Matrix-NEB-docker.git
 cd Matrix-NEB-docker
 ```
-* Create & edit configuration of the bot (./add/neb.conf). See neb.conf.sample.
+
+Then create and edit the configuration of the bot (./add/neb.conf). See neb.conf.sample.
 
 ```
 {
@@ -39,14 +36,18 @@ cd Matrix-NEB-docker
     "admins": ["<list of account that have admin rights (in the context of NEB bot)."]    
 }
 ```
+
+Here's the explanation for each parameter:
+
 | Parameter   | Description |
 | ----------- | ----------- |
 | url         | URL of the matrix server |
 | user        | User in the Matrix server that is used by the bot |
 | token       | Access token of the Matrix user. It can be found in the user account information |
-| admins      | List of accounts that will have *bot admin* rights, e.g. to invite the bot to a room.
+| admins      | List of accounts that will have *bot admin* rights, e.g. to invite the bot to a room. |
 
-* Docker image creation
+
+You can now create the new Docker image:
 
 ```
 docker build -t nic0d/matrix-neb-docker .

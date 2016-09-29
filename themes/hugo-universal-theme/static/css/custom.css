@@ -21,3 +21,21 @@
 #mc_embed_signup #mce-error-response {display:none;}
 #mc_embed_signup #mce-success-response {color:#529214; display:none;}
 #mc_embed_signup label.error {display:block; float:none; width:auto; margin-left:1.05em; text-align:left; padding:.5em 0;}
+
+table {
+	padding: 6px 13px;
+	border: 1px solid #ddd;
+}
+
+th {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	background-color: #dedede;
+}
+
+td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+}
