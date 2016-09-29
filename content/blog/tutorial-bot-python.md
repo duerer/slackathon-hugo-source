@@ -11,6 +11,10 @@ This document describes the setup of a Matrix bot based on NEB and running as a 
 
 <!--more-->
 
+# Develop Matrix bots using NEB
+
+This document describes the setup of a Matrix bot based on NEB and running as a Docker container. NEB is an open source project to create a generic bot extendable through plugins. It is developed in Python and comes with some sample plugins. More documentation on NEB is available on [https://github.com/matrix-org/Matrix-NEB].
+
 ## Prerequisites
 
 * Docker installed
@@ -22,20 +26,19 @@ This document describes the setup of a Matrix bot based on NEB and running as a 
 * Get the project code
 
 ```
-git clone http://git.tailab.eu/cloud-projects/Matrix-NEB.git
-cd Matrix-NEB
+git clone https://github.com/nic0d/Matrix-NEB-docker.git
+cd Matrix-NEB-docker
 ```
-* Edit configuration of the bot (./add/neb.conf)
+* Create & edit configuration of the bot (./add/neb.conf). See neb.conf.sample.
 
 ```
 {
     "url": "<synapse server url>",
-    "user": "<bot user name> (eg: @NEB:matrix.tai.org)",
+    "user": "<bot user name> (eg: @NEB:matrix.org)",
     "token": "<token of the bot user>",
     "admins": ["<list of account that have admin rights (in the context of NEB bot)."]    
 }
 ```
-
 | Parameter   | Description |
 | ----------- | ----------- |
 | url         | URL of the matrix server |
@@ -46,18 +49,15 @@ cd Matrix-NEB
 * Docker image creation
 
 ```
-docker build .
+docker build -t nic0d/matrix-neb-docker .
 ...
 Successfully built <id>
-
-docker tag <id> <image-name>
-#eg: docker tag 7a10fe60421d dumontn/neb-tai:0.0.1
 ```
 
 ## Run
 
 ```
-docker run -it --rm -P dumontn/neb-tai:0.0.1
+docker run -it --rm -P -e GOOGLE_API_KEY=XXXXX nic0d/matrix-neb-docker:latest
 
 2016-07-19 12:04:06,291 INFO:   ===== NEB initialising =====
 2016-07-19 12:04:06,291 INFO: Loading config from /app/neb.conf
@@ -75,6 +75,8 @@ docker run -it --rm -P dumontn/neb-tai:0.0.1
 2016-07-19 12:04:06,372 INFO: Starting new HTTP connection (1): matrix.tai.org
 ```
 
+NB: The google graph commands requires a Google API key, which is given as a environment variable.
+
 The following additional options might be useful:
 
 | Option | Description |
@@ -82,11 +84,11 @@ The following additional options might be useful:
 | --rm  | Useful when testing, but delete the container once it is stopped. |
 | --add-host server_name:IP | Add a static name resolution in the /etc/hosts of the container. It is useful when the matrix server is not properly declared in DNS |
 | -v host-dir:container-dir | Mount a volume from the host in the container. Can be used as a shared folder, or to store the code of the application being edited. |
-| --entrypoint /bin/sh | Override the entrypoint of the container. 9V05078699736Instead of starting the NEB application it starts a shell in the container, which allows to check different things (eg: dns resolution, existence of files, configurations, etc). The application can then be started using python neb.py -c conf_file
+| --entrypoint /bin/sh | Override the entrypoint of the container. Instead of starting the NEB application it starts a shell in the container, which allows to check different things (eg: dns resolution, existence of files, configurations, etc). The application can then be started using python neb.py -c conf_file
 
 ## Test the bot
 
-Use a Matrix client to invite the bot user (eg: @NEB:matrix.tai.org) to a room. Then try some of the commands provided by the default plugins, such as:
+Use a Matrix client to invite the bot user (eg: @NEB:matrix.org) to a room. Then try some of the commands provided by the default plugins, such as:
 
 ```
 !tai graph beatles
@@ -96,6 +98,7 @@ Use a Matrix client to invite the bot user (eg: @NEB:matrix.tai.org) to a room. 
 
 NEB proposes a simple way to add new commands. It defines an interface (./neb/plugins.PluginInterface) and base class (./neb/plugins.Plugin).
 Adding a new command consists in:
+
 1. Create a class extending Plugin
 2. Define the name of the command
 3. Define the command methods and parameters
